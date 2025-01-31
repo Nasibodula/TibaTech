@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --primary-color: #B6C1CF;
+  --primary-color-dark: #6DAFF9;
+  --primary-color-darkest: #07366b;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --extra-light: #F3F3F3;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --boxshadow:5px 5px 30px rgba(0, 0, 0, 0.1);
+  --transition: .4s ease-in-out;
+}
+h1, h2, h3, h4, h5 , h6{
+    overflow-y:hidden ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--primary-color-darkest);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--primary-color-dark);
+}
+img {
+  display: flex;
+  width: 80%;
+}
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+/* .section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+  }
+.section__header {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+  }
+  
+  .section__description {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+  } */
+  .btn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    color: var(--white);
+    white-space: nowrap;
+    background: var(--primary-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  .btn:hover {
+    background: var(--primary-color-dark);
+    box-shadow: 5px 5xp 20px rgba(0, 0, 0, 0.2);
+  }
+  /* .about__image img {
+    width: 100%;
+    display: flex;
+  } */
+  
+
+ul {
+  list-style: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+.hero{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+.header__container {
+  /* background: linear-gradient(
+    to bottom,
+    #e8f0fc,
+    #cfe4ff
+  ); */
+  display: flex;
+  flex-direction: row;
+
+  width: 100vw;
+  height: 100vh;
+
+}
+.header__image .img-fluid{
+    display: flex;
+    position: absolute;
+    right: -20%;
+    top: 20%;
+}
+@keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+.header__image .floating-brain {
+    width: 80%;
+    max-width: 350px;
+    max-height:300px ;
+    object-fit: contain;
+    position: absolute;
+    right: 15%;
+    top: 23%;
+    transform: rotate(10deg);
+    animation: float 3s ease-in-out infinite;
+  }
+
+.header__image::before {
+  position: absolute;
+  content: "";
+  height: 65%;
+  width: 50%;
+  top: 30%;
+  right: 0;
+  background-color: var(--primary-color-dark);
+  opacity: 0.2;
+  border-top-left-radius: 2rem;
+  z-index: -1;
+}
+
+
+.header__content {
+  padding-block: 2rem 5rem;
+  padding-inline: 1rem;
+}
+
+.header__content h2 {
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  background-color: var(--white);
+  border-radius: 5rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header__content h1 {
+  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  text-align: center;
+}
+.badge{
+    background: var(--extra-light);  
+}
+.header__content h1{
+    overflow: hidden;
+    font-size: 5rem;  
+   } 
+
+
+   .about__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .section__header {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .section__description {
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  
+  .about {
+    background-color: #f8f9fa; /* Light Gray Background */
+  }
+  
+  .section__header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .section__description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .btn-custom {
+    background-color: #d3765b;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    transition:  0.3s ease;
+  }
+  
+  .btn-custom:hover {
+    background-color: #b65a44;
+  }
+  
+  .about__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+
+  
+  .section__header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .section__description {
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .choose__card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 1px;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 15px;
+  }
+  
+  .icon {
+    font-size: 20px;
+    color: var(--primary-color-dark);
+    background: #f3f0ff;
+    padding: 10px;
+    border-radius: 10%;
+  }
+  .choose__container img{
+    width: 100%;
+  }
+
+
+
+
+  /* Slide in animation for images */
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Apply animations */
+  .fadeIn {
+    animation: fadeIn 2s ease-out forwards;
+  }
+  
+  .robotic-hand-image {
+    animation: slideInFromRight 2s ease-out forwards;
+  }
+
+
+
+/* navbar */
+/* Initial Header Size */
+header {
+    transition: padding 0.3s ease, font-size 0.3s ease; /* Smooth transition for padding and font-size */
+
+  }
+  
+  header.header-normal h1 {
+    font-size: 2.5rem; /* Larger font size for the header text */
+  }
+  
+  header.header-normal p {
+    font-size: 1.2rem; /* Adjust font size for the subtitle */
+  }
+  
+  /* Shrinking header when scroll happens */
+  header.header-shrunk {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  header.header-shrunk h1 {
+    font-size: 2rem; /* Smaller font size for the header text when scrolled */
+  }
+  
+  header.header-shrunk p {
+    font-size: 1rem; /* Adjust the subtitle font size when scrolled */
+  }
+  
+  /* Navbar fixed at the top */
+  .navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  }
+  
+  /* Initially, navbar is not fixed, normal layout */
+  .navbar-normal {
+    position: relative;
+  }
+  
+  /* Optional: Make navbar background transparent initially */
+  .navbar {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Change navbar background on scroll */
+  .navbar-fixed {
+    background-color: rgba(255, 255, 255, 0.9); /* Make navbar slightly transparent when fixed */
+  }
+  
+  /* Optional: Style for smoother shrinking header */
+  header {
+    transition: padding 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Change header background color when navbar is fixed */
+  header.header-shrunk {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
