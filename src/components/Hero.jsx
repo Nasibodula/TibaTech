@@ -44,11 +44,11 @@ const Hero = () => {
   return (
     <section className="mt-1 hero flex" id="home">
       <div className="header__content col-lg-6 text-content ">
-        <span className="badge text-black p-2 rounded-pill fw-medium">
+        <span className="badge text-black p-2 rounded-pill fw-medium mt-2">
           World's Most Adopted Healthcare AI
         </span>
-        <h2 className="display-4 fw-medium">
-          Revolutionizing<br /> Healthcare with<br /> AI
+        <h2 className="display-4 fw-light mb-5 mt-2 text-start">
+          Revolutionizing Healthcare with  AI
         </h2>
         <p className="text-muted ">
           Redefine healthcare with AI! Experience the power of faster diagnostics <br /> and precisely tailored treatments, designed by

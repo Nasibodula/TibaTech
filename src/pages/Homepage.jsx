@@ -8,6 +8,7 @@ import DoctorsPage from '../components/Doctors'
 import Features from '../components/Features'
 import About from '../components/Aboutus'
 import ScrollReveal from 'scrollreveal';
+import Reviews from '../components/Reviews';
 
 
 
@@ -31,6 +32,7 @@ export default function Homepage() {
       <About/>
       <Services/>
       <Questions/>
+      <Reviews/>
       {/* <Footer/> */}
     </div>
   )
