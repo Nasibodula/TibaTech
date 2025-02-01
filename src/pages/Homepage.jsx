@@ -9,6 +9,7 @@ import Features from '../components/Features'
 import About from '../components/Aboutus'
 import ScrollReveal from 'scrollreveal';
 import Reviews from '../components/Reviews';
+import Subscribe from '../components/Subscribe';
 
 
 
@@ -33,6 +34,7 @@ export default function Homepage() {
       <Services/>
       <Questions/>
       <Reviews/>
+      <Subscribe/>
       {/* <Footer/> */}
     </div>
   )
