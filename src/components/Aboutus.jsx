@@ -21,7 +21,7 @@ export default function About() {
                     {/* Right Side - Image */}
                     <div className="col-lg-6 col-md-12 text-center">
             <img 
-              src="/assets/digital-brain2.jpg" 
+              src="/assets/robotic-hand2.jpg" 
               alt="db" 
               className="img-fluid about__image"
             />

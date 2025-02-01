@@ -28,10 +28,10 @@
 //           <li className='flex'><AiOutlineGlobal/>Languages</li>
 //         </div>
 
-//         <div className='atb flex'>
-//           <span>Sign In</span>
-//           <span>Sign Out</span>
-//         </div>
+        // <div className='atb flex'>
+        //   <span>Sign In</span>
+        //   <span>Sign Out</span>
+        // </div>
 //       </div>
 //       <div className='navBarTwo'>
 //         <div className="logoDiv">
@@ -97,8 +97,14 @@ const Navbar = () => {
   return (
     <div>
       {/* Header Section */}
-      <header className={`py-2 ${isHeaderShrunk ? 'header-shrunk' : 'header-normal'}`}>
-        <p className="text-center">Exploring Africa's Wildest Wonders</p>
+      <header className={`py-2 flex row  ${isHeaderShrunk ? 'header-shrunk' : 'header-normal'}`}>
+        <div className='col-lg-6'>
+          <h1>TibaTech Your Best Choice For Health</h1>
+        </div>
+        <div className='atb col-lg-6'>
+          <span>Sign In</span>
+          <span>Sign Out</span>
+        </div>
       </header>
 
       {/* Navigation Section */}

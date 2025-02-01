@@ -100,15 +100,9 @@ body {
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-top: 3rem;
-    margin-bottom: 0;
 }
+
 .header__container {
-  /* background: linear-gradient(
-    to bottom,
-    #e8f0fc,
-    #cfe4ff
-  ); */
   display: flex;
   flex-direction: row;
 
@@ -120,7 +114,8 @@ body {
     display: flex;
     position: absolute;
     right: -20%;
-    top: 20%;
+    top: 10%;
+
 }
 @keyframes float {
     0% {
@@ -135,12 +130,12 @@ body {
   }
 .header__image .floating-brain {
     width: 80%;
-    max-width: 350px;
-    max-height:300px ;
+    max-width: 300px;
+    max-height:250px ;
     object-fit: contain;
     position: absolute;
-    right: 15%;
-    top: 23%;
+    right: 25%;
+    top: 15%;
     transform: rotate(10deg);
     animation: float 3s ease-in-out infinite;
   }
@@ -148,7 +143,7 @@ body {
 .header__image::before {
   position: absolute;
   content: "";
-  height: 65%;
+  height: 70%;
   width: 50%;
   top: 30%;
   right: 0;
@@ -164,20 +159,9 @@ body {
   padding-inline: 1rem;
 }
 
-.header__content h2 {
-  width: fit-content;
-  margin-inline: auto;
-  margin-bottom: 1rem;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--primary-color);
-  background-color: var(--white);
-  border-radius: 5rem;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
-}
 
-.header__content h1 {
+
+.header__content h2 {
   margin-bottom: 2rem;
   font-size: 3.5rem;
   font-weight: 800;
@@ -188,6 +172,8 @@ body {
     background: var(--extra-light);  
 }
 .header__content h1{
+    text-align: left !important; 
+
     overflow: hidden;
     font-size: 5rem;  
    } 
@@ -323,6 +309,7 @@ body {
 /* Initial Header Size */
 header {
     transition: padding 0.3s ease, font-size 0.3s ease; /* Smooth transition for padding and font-size */
+    background: var(--primary-color);
 
   }
   
@@ -336,8 +323,8 @@ header {
   
   /* Shrinking header when scroll happens */
   header.header-shrunk {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   
   header.header-shrunk h1 {
@@ -373,13 +360,37 @@ header {
     background-color: rgba(255, 255, 255, 0.9); /* Make navbar slightly transparent when fixed */
   }
   
-  /* Optional: Style for smoother shrinking header */
-  header {
-    transition: padding 0.3s ease, background-color 0.3s ease;
-  }
+
   
   /* Change header background color when navbar is fixed */
   header.header-shrunk {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
   }
+
+
+ header{
+    transition: padding 0.3s ease, background-color 0.3s ease;
+    background: var(--primary-color);
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+ 
+    .icon:hover{
+       color: var(--primary-color-dark);
+    }
+    .atb{
+       gap: 1rem;
+
+       span{
+          color: var(--text-dark);
+          font-size: 15px;
+          cursor: pointer;
+
+          &:hover{
+             color: var(--primary-color-dark);
+             font-size: 700;
+          }
+       }
+    }
+ }
