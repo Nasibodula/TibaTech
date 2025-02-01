@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Services from './components/Services'; 
 import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
+import SymptomChecker from "./pages/SymtomsCheck";
 
 
 
@@ -16,7 +17,7 @@ function App() {
 
                 <Routes className='content'>
                     <Route path="/" element={<Homepage/>} /> 
-                    {/* <Route path="/homepage" element={<Homepage/>} />  */}
+                    <Route path="/symtomscheck" element={<SymptomChecker/>} /> 
                 </Routes>
     </div>
     </Router>
