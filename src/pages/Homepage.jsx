@@ -30,6 +30,7 @@ export default function Homepage() {
       <Hero/>
       <About/>
       <Services/>
+      <Questions/>
       {/* <Footer/> */}
     </div>
   )

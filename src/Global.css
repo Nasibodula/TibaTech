@@ -2,7 +2,8 @@
 
 :root {
   --primary-color: #B6C1CF;
-  --primary-color-dark: #6DAFF9;
+  /* --primary-color-dark: #6DAFF9; */
+  --primary-color-dark: #05bec1;
   --primary-color-darkest: #07366b;
   --text-dark: #0f172a;
   --text-light: #64748b;
@@ -394,3 +395,59 @@ header {
        }
     }
  }
+
+
+
+/* questions */
+ .faq-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+  transform: rotate(0deg);
+}
+
+.accordion-arrow.active {
+  transform: rotate(180deg);
+}
+
+.accordion-button {
+  padding: 1.25rem;
+  font-weight: 500;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-item.active-item .accordion-button {
+  background-color: #e7f1ff !important;
+}
+
+.accordion-item.active-item .accordion-body {
+  background-color: var(--primary-color-dark);
+  color: var(--white);
+}
+
+.accordion-item {
+  border: 1px solid var(--primary-color-dark);
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-body {
+  padding: 1.25rem;
+  border-top: 2px solid var(--primary-color-dark);
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
