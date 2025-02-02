@@ -23,8 +23,8 @@ h1, h2, h3, h4, h5 , h6{
   box-sizing: border-box;
   overflow-x: hidden;
 }
-
-.btn {
+/*  */
+/* .btn {
   padding: 0.75rem 1.5rem;
   outline: none;
   border: none;
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5 , h6{
   border-radius: 0.5rem;
   transition: 0.3s;
   cursor: pointer;
-}
+} */
 
 
 img {
@@ -45,15 +45,15 @@ a {
   text-decoration: none;
   transition: 0.3s;
 }
-
+/* 
   .btn:hover {
     background:var(--primary-color-dark) ;
     box-shadow: 5px 5xp 20px rgba(0, 0, 0, 0.2);
-  }
+  } */
 
   
 
-ul {
+ul{
   list-style: none;
 }
 
@@ -76,7 +76,29 @@ body {
 header {
   transition: padding 0.3s ease, font-size 0.3s ease; /* Smooth transition for padding and font-size */
   background: var(--primary-color);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+header .profile_details{
+  display: flex;
+  align-items: center;
+  flex-wrap:  nowrap;
+  padding-right: 20px;
+  gap: 10px;
 
+}
+head .profile_details .profile_content{
+  display: flex;
+}
+header .profile_details img{
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 header.header-normal h1 {
@@ -123,15 +145,15 @@ header.header-shrunk {
 }
 
 /* Change navbar background on scroll */
-/* .navbar-fixed {
+.navbar-fixed {
   background-color: rgba(255, 255, 255, 0.9);
-} */
+}
 
 
 
 /* Change header background color when navbar is fixed */
 .nav header.header-shrunk {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
 }
 
@@ -144,24 +166,6 @@ header.header-shrunk {
   width: 100%;
 }
 
-  /* .icon:hover{
-     color: var(--primary-color-dark);
-  }
-  .atb{
-     gap: 1rem;
-
-     span{
-        color: var(--text-dark);
-        font-size: 15px;
-        cursor: pointer;
-
-        &:hover{
-           color: var(--primary-color-dark);
-           font-size: 700;
-        }
-     }
-  }
-} */
 .nav-link {
   font-size: 1.1rem;
   font-weight: 500;
@@ -204,7 +208,9 @@ header.header-shrunk {
     height: auto;
     overflow: hidden;
 }
-
+.hero .btn:hover{
+  background: var(--primary-color-dark);
+}
 .header__container {
   display: flex;
   flex-direction: row;
@@ -266,7 +272,7 @@ header.header-shrunk {
 
 .header__content h2 {
   /* margin-bottom: 2rem; */
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
   color: var(--text-dark);
   text-align: center;
@@ -281,6 +287,8 @@ header.header-shrunk {
     font-size: 5rem;  
    } 
 
+
+     /* About */
 
    .about__image {
     max-width: 100%;
@@ -298,11 +306,16 @@ header.header-shrunk {
     color: #555;
   }
 
-  
   .about {
     background-color: #f8f9fa; /* Light Gray Background */
   }
-  
+  .about .btn{
+    background: var(--text-light);
+  }
+  .about .btn:hover{
+    background: var(--primary-color-dark);
+    color: var(--white);
+  }
   .section__header {
     font-size: 2.5rem;
     font-weight: bold;
@@ -445,7 +458,7 @@ header.header-shrunk {
   color: var(--white);
 }
 
-.accordion-item {
+.accordion .accordion-item {
   border: 1px solid var(--primary-color-dark);
   border-radius: 0.5rem !important;
   overflow: hidden;
@@ -496,8 +509,8 @@ header.header-shrunk {
 }
 
 .testimonial-content {
-  width: 600px; /* Same width as the image */
-  height: 250px; /* Same height as the image */
+  width: 600px; 
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;

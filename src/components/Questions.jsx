@@ -70,14 +70,11 @@ const Questions = () => {
           <Accordion.Item 
             key={index} 
             eventKey={index.toString()} 
-            className={`mb-3 ${activeKey === index.toString() ? 'active-item' : ''}`}
+            className={`mb-3 accordion-item ${activeKey === index.toString() ? 'active-item' : ''}`}
           >
             <Accordion.Header>
               <div className="d-flex justify-content-between w-100 pe-3">
-                <span>{item.title}</span>
-                {/* <span className={`accordion-arrow ${activeKey === index.toString() ? 'active' : ''}`}>
-                  ▼
-                </span> */}
+                <h6>{item.title}</h6>
               </div>
             </Accordion.Header>
             <Accordion.Body>

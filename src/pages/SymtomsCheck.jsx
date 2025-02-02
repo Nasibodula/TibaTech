@@ -1,65 +1,113 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Form, Button, InputGroup, Badge, Alert } from "react-bootstrap";
+
+const commonSymptoms = [
+  "Abdominal pain", "Chest pain", "Confusion", "Diarrhea", "Dizziness", "Headache", "Leg concern", "Skin rash"
+];
+
+const symptomDiagnosisMap = {
+  "Headache": ["Migraine", "Tension Headache", "Dehydration"],
+  "Chest pain": ["Heart Attack", "Indigestion", "Panic Attack"],
+  "Dizziness": ["Low Blood Pressure", "Vertigo", "Anemia"],
+  "Abdominal pain": ["Appendicitis", "Gastritis", "Food Poisoning"],
+  "Diarrhea": ["Food Poisoning", "Irritable Bowel Syndrome", "Infection"],
+  "Confusion": ["Stroke", "Dehydration", "Low Blood Sugar"],
+  "Leg concern": ["Blood Clot", "Muscle Strain", "Nerve Damage"],
+  "Skin rash": ["Allergic Reaction", "Eczema", "Psoriasis"]
+};
 
 const SymptomChecker = () => {
-  const [symptoms, setSymptoms] = useState('');
-  const [diagnosis, setDiagnosis] = useState('');
-  const [severity, setSeverity] = useState('');
-  const [advice, setAdvice] = useState('');
-
-  const handleSubmit = () => {
-    // Simple logic for demonstration
-    if (symptoms.toLowerCase().includes('fever')) {
-      setDiagnosis('Possible Flu');
-      setSeverity('Moderate');
-      setAdvice('Rest and hydrate. Consult a doctor if symptoms persist.');
-    } else {
-      setDiagnosis('Unknown');
-      setSeverity('Mild');
-      setAdvice('Monitor your symptoms.');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedSymptoms, setSelectedSymptoms] = useState([]);
+  
+  const handleSelectSymptom = (symptom) => {
+    if (!selectedSymptoms.includes(symptom)) {
+      setSelectedSymptoms([...selectedSymptoms, symptom]);
     }
   };
 
+  const handleRemoveSymptom = (symptom) => {
+    setSelectedSymptoms(selectedSymptoms.filter((s) => s !== symptom));
+  };
+
+  const getSuggestedDiagnoses = () => {
+    let possibleDiagnoses = new Set();
+    selectedSymptoms.forEach(symptom => {
+      if (symptomDiagnosisMap[symptom]) {
+        symptomDiagnosisMap[symptom].forEach(diagnosis => possibleDiagnoses.add(diagnosis));
+      }
+    });
+    return Array.from(possibleDiagnoses);
+  };
+
   return (
-    <div className="container">
-      <header className="d-flex justify-content-between align-items-center py-4">
-        <h1>Symptom Checker</h1>
-        <button className="btn btn-secondary">Back</button>
-      </header>
+    <div className="symptom-checker-container text-center p-4">
+      <h5 className="step">STEP 2/4</h5>
+      <h2>Add your symptoms</h2>
+      <p>Please use the search or click on the body model for more options.</p>
 
-      <div className="input-area my-4">
-        <div className="input-group">
-          <input 
-            type="text" 
-            className="form-control" 
-            placeholder="Describe your symptoms..." 
-            value={symptoms}
-            onChange={(e) => setSymptoms(e.target.value)}
-          />
-          <button className="btn btn-outline-secondary">
-            <i className="bi bi-mic"></i> {/* Mic icon for voice input */}
-          </button>
+      <InputGroup className="mb-3 search-bar">
+        <Form.Control
+          type="text"
+          placeholder="Search, e.g. headache"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </InputGroup>
+
+      {searchTerm && (
+        <div className="autocomplete-list">
+          {commonSymptoms
+            .filter((symptom) => symptom.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((symptom, index) => (
+              <div key={index} className="autocomplete-item" onClick={() => handleSelectSymptom(symptom)}>
+                {symptom}
+              </div>
+            ))}
         </div>
+      )}
+
+      <div className="selected-symptoms mb-3">
+        {selectedSymptoms.map((symptom, index) => (
+          <Badge pill  className="m-1 btn" key={index}>
+            {symptom} <span className="remove-symptom p-1" onClick={() => handleRemoveSymptom(symptom)}>x</span>
+          </Badge>
+        ))}
       </div>
 
-      <div className="suggestions my-4">
-        {/* This is a placeholder for an autocomplete dropdown */}
-        <ul className="list-group">
-          <li className="list-group-item">Fever</li>
-          <li className="list-group-item">Headache</li>
-          <li className="list-group-item">Cough</li>
-        </ul>
+      <div className="common-symptoms">
+        <h6>Common Symptoms:</h6>
+        {commonSymptoms.map((symptom, index) => (
+          <Button key={index}  className="m-1 btn" onClick={() => handleSelectSymptom(symptom)}>
+            {symptom}
+          </Button>
+        ))}
       </div>
 
-      <div className="results-section my-4">
-        <h4>Suggested Diagnosis: {diagnosis}</h4>
-        <p><strong>Severity: </strong>{severity}</p>
-        <p><strong>Advice: </strong>{advice}</p>
-        <button className="btn btn-primary">Connect to a Doctor</button>
+      {selectedSymptoms.length > 0 && (
+        <div className="suggested-diagnoses mt-4">
+          <h6>Possible Diagnoses:</h6>
+          {getSuggestedDiagnoses().length > 0 ? (
+            <Alert variant="info">
+              {getSuggestedDiagnoses().map((diagnosis, index) => (
+                <div key={index}>• {diagnosis}</div>
+              ))}
+            </Alert>
+          ) : (
+            <p>No suggestions available.</p>
+          )}
+        </div>
+      )}
+
+      <div className="body-model mt-4">
+        <img src="/path/to/body-model.png" alt="Body Model" className="img-fluid" />
+        <p className="rotate-text">🔄 Rotate model</p>
       </div>
 
-      <footer className="my-4 text-center text-muted">
-        <p><small>This is not a substitute for professional medical advice.</small></p>
-      </footer>
+      <div className="navigation-buttons mt-4">
+        <Button className="btn">← Previous</Button>
+        <Button  className="ms-2 btn">Next →</Button>
+      </div>
     </div>
   );
 };

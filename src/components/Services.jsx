@@ -28,11 +28,10 @@ export default function Services() {
 
         {/* Right Side - Content */}
         <div className="col-lg-7">
-          <h2 className="section__header">Why Choose Us</h2>
+          <h2 className="section__header">Our Healthcare Services</h2>
           <p className="section__description">
-            Discover the difference with our car rental service. We offer reliable
-            vehicles, exceptional customer service, and competitive pricing to ensure
-            a seamless rental experience.
+          Access essential healthcare services with ease. Use our platform for symptom checking, 
+          consultations, and finding nearby clinics.
           </p>
 
           <div className="row">
@@ -46,43 +45,43 @@ export default function Services() {
             </div>
 
             <div className="col-md-6 choose__card">
-              <i className="ri-map-pin-line icon"></i>
+            <i className="ri-stethoscope-line icon"></i>
               <div>
-                <h5>Many Locations</h5>
-                <p>Convenient pick-up and drop-off locations.</p>
+                <h5>Symptom Checker</h5>
+                <p>Check your symptoms and get possible diagnoses.</p>
               </div>
             </div>
 
             <div className="col-md-6 choose__card">
-              <i className="ri-wallet-line icon"></i>
-              <div>
-                <h5>Best Price</h5>
-                <p>Competitive rates and great value.</p>
-              </div>
+              <i className="ri-hospital-line icon"></i>
+                <div>
+                  <h5>Consultation Services</h5>
+                  <p>Get online medical consultations from experts.</p>
+                </div>
             </div>
 
             <div className="col-md-6 choose__card">
-              <i className="ri-user-star-line icon"></i>
-              <div>
-                <h5>Experienced Drivers</h5>
-                <p>Professional drivers available.</p>
-              </div>
+              <i className="ri-map-pin-user-line icon"></i>
+                <div>
+                  <h5>Nearby Clinics</h5>
+                  <p>Find healthcare facilities near you.</p>
+                </div>
             </div>
 
             <div className="col-md-6 choose__card">
-              <i className="ri-verified-badge-line icon"></i>
-              <div>
-                <h5>Verified Brands</h5>
-                <p>Choose from trusted car brands.</p>
-              </div>
+              <i className="ri-settings-3-line icon"></i>
+                <div>
+                  <h5>Settings & Offline Mode</h5>
+                  <p>Customize your experience and access offline tools.</p>
+                </div>
             </div>
 
             <div className="col-md-6 choose__card">
-              <i className="ri-calendar-close-line icon"></i>
-              <div>
-                <h5>Free Cancellations</h5>
-                <p>Flexible bookings with free cancellation.</p>
-              </div>
+              <i className="ri-question-line icon"></i>
+                <div>
+                  <h5>About & Help Center</h5>
+                  <p>Learn more about our services and get support.</p>
+                </div>
             </div>
 
           </div>

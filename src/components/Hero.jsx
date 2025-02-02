@@ -47,12 +47,12 @@ const Hero = () => {
         <span className="badge text-black p-2 rounded-pill fw-medium mt-2">
           World's Most Adopted Healthcare AI
         </span>
-        <h2 className="display-4 fw-light mb-5 mt-2 text-start">
-          Revolutionizing Healthcare with  AI
+        <h2 className="display-4 fw-medium mb-4 mt-3 text-start">
+          Revolutionizing Healthcare with  <br/>AI
         </h2>
         <p className="text-muted ">
           Redefine healthcare with AI! Experience the power of faster diagnostics <br /> and precisely tailored treatments, designed by
-          TibaTech. Unveil the <br /> immense potential of intelligent care.
+          TibaTech. Unveil the <br /> immense potential of intelligent care. Bridge the gap between cutting-edge technology and holistic wellness.
         </p>
         <div className="mt-4 d-flex flex-column flex-sm-row gap-3">
           <button className="btn btn-dark d-flex align-items-center" ref={menuBtnRef}>

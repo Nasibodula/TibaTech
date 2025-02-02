@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import ScrollReveal from 'scrollreveal';
-
+import { Link } from "react-router-dom";
 
 
 export default function About() {
@@ -41,7 +41,7 @@ export default function About() {
             health and well-being, reduce health inequalities, and ultimately improve the quality
             of life for those in rural Kenya.
             </p>
-            <button className="btn  mt-3">View More</button>
+            <Link to='/viewmore'><button className="btn btn-dark  mt-3">View More</button></Link>
           </div>
 
         </div>
