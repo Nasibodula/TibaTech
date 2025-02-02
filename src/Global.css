@@ -93,16 +93,16 @@ header.header-shrunk {
   padding-bottom: 20px;
 }
 
-header.header-shrunk h1 {
+.nav header.header-shrunk h1 {
   font-size: 2rem; /* Smaller font size for the header text when scrolled */
 }
 
-header.header-shrunk p {
+.nav header.header-shrunk p {
   font-size: 1rem; /* Adjust the subtitle font size when scrolled */
 }
 
 /* Navbar fixed at the top */
-.navbar-fixed {
+.nav .navbar-fixed {
   position: fixed;
   top: 0;
   left: 0;
@@ -112,38 +112,39 @@ header.header-shrunk p {
 }
 
 /* Initially, navbar is not fixed, normal layout */
-.navbar-normal {
+.nav .navbar-normal {
   position: relative;
   background: transparent;
 }
 
 /* Optional: Make navbar background transparent initially */
-.navbar {
+.nav .navbar {
   transition: background-color 0.3s ease;
 }
 
 /* Change navbar background on scroll */
-.navbar-fixed {
-  background-color: rgba(255, 255, 255, 0.9); /* Make navbar slightly transparent when fixed */
-}
+/* .navbar-fixed {
+  background-color: rgba(255, 255, 255, 0.9);
+} */
 
 
 
 /* Change header background color when navbar is fixed */
-header.header-shrunk {
+.nav header.header-shrunk {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
 }
 
 
-header{
+.nav header{
   transition: padding 0.3s ease, background-color 0.3s ease;
   background: var(--primary-color);
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
+}
 
-  .icon:hover{
+  /* .icon:hover{
      color: var(--primary-color-dark);
   }
   .atb{
@@ -160,14 +161,14 @@ header{
         }
      }
   }
-}
-.nav-link {
+} */
+/* .nav-link {
   font-size: 1.1rem;
   font-weight: 500;
   padding: 12px 20px;
   transition: all 0.3s ease;
-  color: #5e5e5e; /* Light gray text */
-  position: relative; /* Required for positioning the animated border */
+  color: #5e5e5e;
+  position: relative; 
 }
 
 .nav-link::before {
@@ -179,9 +180,9 @@ header{
   height: 2px;
   background-color: var(--primary-color-dark);
   transition: width 0.3s ease;
-}
+} */
 
-.nav-link:hover {
+/* .nav-link:hover {
   color: var(--primary-color-dark);
   transform: translateY(-3px);
 }
@@ -191,8 +192,8 @@ header{
 }
 
 .nav-item {
-  margin-right: 20px; /* Space between links */
-}
+  margin-right: 20px;
+} */
 
 
 

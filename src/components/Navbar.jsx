@@ -26,7 +26,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className='nav'>
       {/* Header Section */}
       <header className={`py-2 flex row  ${isHeaderShrunk ? 'header-shrunk' : 'header-normal'}`}>
         <div className='atb'>
