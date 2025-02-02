@@ -162,7 +162,7 @@ header.header-shrunk {
      }
   }
 } */
-/* .nav-link {
+.nav-link {
   font-size: 1.1rem;
   font-weight: 500;
   padding: 12px 20px;
@@ -180,9 +180,9 @@ header.header-shrunk {
   height: 2px;
   background-color: var(--primary-color-dark);
   transition: width 0.3s ease;
-} */
+}
 
-/* .nav-link:hover {
+.nav-link:hover {
   color: var(--primary-color-dark);
   transform: translateY(-3px);
 }
@@ -193,7 +193,7 @@ header.header-shrunk {
 
 .nav-item {
   margin-right: 20px;
-} */
+}
 
 
 
