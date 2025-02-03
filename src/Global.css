@@ -584,3 +584,62 @@ header.header-shrunk {
 .subscribe__container input::placeholder {
   color: var(--white);
 }
+
+
+
+
+
+/* NearbyClinics */
+
+.clinic-card {
+  margin: 1rem 0;
+  transition: transform 0.2s;
+}
+
+.clinic-card:hover {
+  transform: translateY(-5px);
+}
+
+.map-container {
+  height: 500px;
+  width: 100%;
+  margin: 2rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.service-badge {
+  margin: 2px;
+}
+
+.direction-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.offline-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* In your main CSS file */
+/* .map-directions-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  background: #f8f9fa; 
+}
+
+.leaflet-routing-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 300px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+} */
