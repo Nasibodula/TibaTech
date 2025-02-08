@@ -1,21 +1,17 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import './App.css';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero'; 
-import Services from './components/Services'; 
 import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
 import SymptomChecker from "./pages/SymtomsCheck";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Viewmore from "./pages/Viewmore";
-// import Clinics from "./pages/NearbyClinics";
-import NearbyHealthFacilities from "./pages/Clinics";
-import DirectionsPage from "./pages/Directions";
+import NearbyHealthFacilities from "./pages/NearbyClinics";
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import L from 'leaflet';
+import TelemedicinePage from "./pages/Consultation";
 
 
 
@@ -42,7 +38,8 @@ L.Marker.prototype.options.icon = DefaultIcon;
                     <Route path="/signup" element={<Signup/>} /> 
                     <Route path="/viewmore" element={<Viewmore/>} /> 
                     <Route path="/clinics" element={<NearbyHealthFacilities/>} /> 
-                    <Route path="/directions/:clinicId" element={<DirectionsPage />} />
+                    {/* <Route path="/directions/:clinicId" element={<DirectionsPage />} /> */}
+                    <Route path="/consult" element={<TelemedicinePage/>}/>
                 </Routes>
       {/* <Footer/>           */}
     </div>

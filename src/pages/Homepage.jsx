@@ -1,11 +1,8 @@
-// import ArticlesPage from '../components/ArticlePage'
 import React, { useEffect, useState, useRef } from 'react';
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
-import Services from '../components/Services'
+import Services from '../components/Symptomschecker'
 import Questions from '../components/Questions'
-import DoctorsPage from '../components/Doctors'
-import Features from '../components/Features'
 import About from '../components/Aboutus'
 import ScrollReveal from 'scrollreveal';
 import Reviews from '../components/Reviews';
