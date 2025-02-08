@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
+
+.healthcare-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c0572, #0d4b82, #0950f7);
+  overflow: hidden;
+  padding: 4rem 2rem;
+  font-family: 'Jacques Francois', serif;
+}
+
+/* Grid Background */
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.grid-line-horizontal,
+.grid-line-vertical {
+  position: absolute;
+  background: rgba(192, 192, 192, 0.1);
+}
+
+.grid-line-horizontal {
+  width: 100%;
+  height: 1px;
+  left: 0;
+}
+
+.grid-line-vertical {
+  width: 1px;
+  height: 100%;
+  top: 0;
+}
+
+.grid-line-horizontal:nth-child(n) {
+  top: calc(5% * var(--i));
+}
+
+.grid-line-vertical:nth-child(n) {
+  left: calc(5% * var(--i));
+}
+
+/* Titles and Descriptions */
+.section-title {
+  color: #ffffff;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(0, 157, 255, 0.6);
+}
+
+.section-description {
+  color: #e0e0ff;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Carousel */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.service-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  padding: 2rem;
+}
+
+.service-card.active {
+  opacity: 1;
+}
+
+.card-inner {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.card-image {
+  flex: 0 0 45%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.card-image img:hover {
+  transform: scale(1.05);
+}
+
+.card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.card-text h3 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(0, 157, 255, 0.4);
+}
+
+.card-text p {
+  color: #e0e0ff;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Carousel Navigation */
+.carousel-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: white;
+}
+
+.carousel-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .card-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .card-image {
+    flex: 0 0 200px;
+    width: 100%;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-description {
+    font-size: 1.2rem;
+  }
+
+  .card-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .card-text p {
+    font-size: 1rem;
+  }
+
+  .carousel-container {
+    height: 600px;
+  }
+
+  .card-image {
+    flex: 0 0 150px;
+  }
+}

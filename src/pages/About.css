@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Jacques+Francois&display=swap');
+
+.about-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0c0572, #0d4b82, #0950f7);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  font-family: 'Jacques Francois', serif;
+}
+
+/* Grid Lines */
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  pointer-events: none;
+}
+
+.grid-line {
+  height: 100%;
+  border-right: 1px solid rgba(0, 157, 255, 0.1);
+  animation: pulseLine 4s infinite;
+}
+
+@keyframes pulseLine {
+  0% {
+    opacity: 0.1;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    opacity: 0.1;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* About Content */
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.about-title {
+  color: #ffffff;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  text-shadow: 0 0 15px rgba(0, 157, 255, 0.6);
+}
+
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00ccff, transparent);
+}
+
+/* About Grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-inner {
+  padding: 30px;
+  border: 1px solid rgba(0, 157, 255, 0.2);
+  border-radius: 15px;
+  height: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.about-card h3 {
+  color: #00ccff;
+  font-size: 24px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.about-card h3::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  width: 3px;
+  height: 70%;
+  background: linear-gradient(to bottom, transparent, #00ccff, transparent);
+  transform: translateY(-50%);
+}
+
+.about-card p {
+  color: #e0e0ff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Achievement Section */
+.achievement-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.achievement-item {
+  text-align: center;
+}
+
+.achievement-number {
+  display: block;
+  font-size: 36px;
+  color: #00ccff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(0, 157, 255, 0.4);
+}
+
+.achievement-label {
+  color: #e0e0ff;
+  font-size: 16px;
+}
+
+/* Animation Classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-title {
+    font-size: 36px;
+  }
+
+  .about-card h3 {
+    font-size: 20px;
+  }
+
+  .achievement-number {
+    font-size: 28px;
+  }
+}

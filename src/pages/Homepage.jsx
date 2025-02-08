@@ -1,38 +1,53 @@
-import React, { useEffect, useState, useRef } from 'react';
-import Footer from '../components/Footer'
-import Hero from '../components/Hero'
-import Services from '../components/Symptomschecker'
-import Questions from '../components/Questions'
-import About from '../components/Aboutus'
-import ScrollReveal from 'scrollreveal';
-import Reviews from '../components/Reviews';
-import Subscribe from '../components/Subscribe';
+import React from 'react';
+import { ChevronDown } from 'lucide-react';
+import './Homepage.css';
+import About from './About';
+import HealthcareServices from './HealthcareServices';
 
 
+const Homepage = ({id}) => {
+  const scrollToAbout = () => {
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+  };
 
-
-export default function Homepage() {
-  useEffect(() => {
-    const scrollRevealOption = {
-      origin: 'bottom',
-      distance: '50px',
-      duration: 1000,
-    };
-
-    // Apply ScrollReveal to entire page
-    ScrollReveal().reveal('.hero', { ...scrollRevealOption });
-    ScrollReveal().reveal('.section', { ...scrollRevealOption, delay: 500 });
-    ScrollReveal().reveal('.footer', { ...scrollRevealOption, delay: 1000 });
-  }, []);
   return (
-    <div >
-      <Hero/>
-      <About/>
-      <Services/>
-      <Questions/>
-      <Reviews/>
-      <Subscribe/>
-      {/* <Footer/> */}
-    </div>
-  )
-}
+    <>
+      <div id={id} className="homepage">
+        <div className="content">
+          <div className="text-section">
+            <div className="text-container">
+              <h1 className="title">TIBA TECH</h1>
+              <p className="description">
+                Get fast, reliable health care with just a click of a button!
+              </p>
+              <button className="cta-button">Get Started</button>
+            </div>
+            <div className="decorative-elements">
+              <div className="circle-decoration"></div>
+              <div className="line-decoration"></div>
+            </div>
+          </div>
+          
+          <div className="image-section">
+            <img src="doctor.png" alt="Doctor" className="doctor-image" />
+          </div>
+        </div>
+
+        <div className="silver-lines">
+          <div className="line line1"></div>
+          <div className="line line2"></div>
+          <div className="line line3"></div>
+        </div>
+
+        <div className="scroll-indicator" onClick={scrollToAbout}>
+          <ChevronDown className="bounce" size={48} />
+        </div>
+      </div>
+      
+      <About />
+
+    </>
+  );
+};
+
+export default Homepage;
