@@ -9,8 +9,8 @@ import SymptomChecker from "./pages/SymtomsCheck";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Viewmore from "./pages/Viewmore";
-import Clinics from "./pages/NearbyClinics";
-import NearbyClinics from "./pages/NearbyClinics";
+// import Clinics from "./pages/NearbyClinics";
+import NearbyHealthFacilities from "./pages/Clinics";
 import DirectionsPage from "./pages/Directions";
 import 'leaflet/dist/leaflet.css';
 import icon from 'leaflet/dist/images/marker-icon.png';
@@ -41,7 +41,7 @@ L.Marker.prototype.options.icon = DefaultIcon;
                     <Route path="/profile" element={<Profile/>} /> 
                     <Route path="/signup" element={<Signup/>} /> 
                     <Route path="/viewmore" element={<Viewmore/>} /> 
-                    <Route path="/clinics" element={<NearbyClinics/>} /> 
+                    <Route path="/clinics" element={<NearbyHealthFacilities/>} /> 
                     <Route path="/directions/:clinicId" element={<DirectionsPage />} />
                 </Routes>
       {/* <Footer/>           */}

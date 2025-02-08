@@ -64,120 +64,120 @@
 // export default Directions;
 
 // DirectionsPage.js
-import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-routing-machine';
-import { Button } from 'react-bootstrap';
-import { clinics } from './Clinics'; // Ensure you have this data file
+// import React, { useEffect, useState, useRef } from 'react';
+// import { useParams, useNavigate } from 'react-router-dom';
+// import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
+// import L from 'leaflet';
+// import 'leaflet/dist/leaflet.css';
+// import 'leaflet-routing-machine';
+// import { Button } from 'react-bootstrap';
 
-// Fix leaflet default markers
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-const DefaultIcon = L.icon({
-    iconUrl: icon,
-    shadowUrl: iconShadow,
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-});
+// // Fix leaflet default markers
+// import icon from 'leaflet/dist/images/marker-icon.png';
+// import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-L.Marker.prototype.options.icon = DefaultIcon;
+// const DefaultIcon = L.icon({
+//     iconUrl: icon,
+//     shadowUrl: iconShadow,
+//     iconSize: [25, 41],
+//     iconAnchor: [12, 41],
+//     popupAnchor: [1, -34],
+//     shadowSize: [41, 41]
+// });
 
-const DirectionsPage = () => {
-    const [userPosition, setUserPosition] = useState([51.505, -0.09]);
-    const [clinic, setClinic] = useState(null);
-    const [mapInitialized, setMapInitialized] = useState(false);
-    const { clinicId } = useParams();
-    const navigate = useNavigate();
-    const mapRef = useRef();
+// L.Marker.prototype.options.icon = DefaultIcon;
 
-    useEffect(() => {
-        const foundClinic = clinics.find(c => c.id === parseInt(clinicId));
-        if (!foundClinic) {
-            navigate('/');
-            return;
-        }
-        setClinic(foundClinic);
+// const DirectionsPage = () => {
+//     const [userPosition, setUserPosition] = useState([51.505, -0.09]);
+//     const [clinic, setClinic] = useState(null);
+//     const [mapInitialized, setMapInitialized] = useState(false);
+//     const { clinicId } = useParams();
+//     const navigate = useNavigate();
+//     const mapRef = useRef();
 
-        navigator.geolocation.getCurrentPosition(
-            pos => {
-                const newPos = [pos.coords.latitude, pos.coords.longitude];
-                setUserPosition(newPos);
-                setMapInitialized(true);
-            },
-            err => {
-                console.error("Error getting position:", err);
-                setMapInitialized(true);
-            }
-        );
-    }, [clinicId, navigate]);
+//     useEffect(() => {
+//         const foundClinic = clinics.find(c => c.id === parseInt(clinicId));
+//         if (!foundClinic) {
+//             navigate('/');
+//             return;
+//         }
+//         setClinic(foundClinic);
 
-    const Routing = () => {
-        const map = useMap();
+//         navigator.geolocation.getCurrentPosition(
+//             pos => {
+//                 const newPos = [pos.coords.latitude, pos.coords.longitude];
+//                 setUserPosition(newPos);
+//                 setMapInitialized(true);
+//             },
+//             err => {
+//                 console.error("Error getting position:", err);
+//                 setMapInitialized(true);
+//             }
+//         );
+//     }, [clinicId, navigate]);
 
-        useEffect(() => {
-            if (!map || !clinic) return;
+//     const Routing = () => {
+//         const map = useMap();
 
-            const routingControl = L.Routing.control({
-                waypoints: [
-                    L.latLng(userPosition[0], userPosition[1]),
-                    L.latLng(clinic.coordinates[0], clinic.coordinates[1])
-                ],
-                routeWhileDragging: true,
-                show: true,
-                addWaypoints: false,
-                draggableWaypoints: false,
-                fitSelectedRoutes: true,
-            }).addTo(map);
+//         useEffect(() => {
+//             if (!map || !clinic) return;
 
-            return () => map.removeControl(routingControl);
-        }, [map, clinic, userPosition]);
+//             const routingControl = L.Routing.control({
+//                 waypoints: [
+//                     L.latLng(userPosition[0], userPosition[1]),
+//                     L.latLng(clinic.coordinates[0], clinic.coordinates[1])
+//                 ],
+//                 routeWhileDragging: true,
+//                 show: true,
+//                 addWaypoints: false,
+//                 draggableWaypoints: false,
+//                 fitSelectedRoutes: true,
+//             }).addTo(map);
 
-        return null;
-    };
+//             return () => map.removeControl(routingControl);
+//         }, [map, clinic, userPosition]);
 
-    if (!mapInitialized || !clinic) {
-        return <div>Loading map...</div>;
-    }
+//         return null;
+//     };
 
-    return (
-        <div style={{ height: '100vh', width: '100%', position: 'relative' }}>
-            <Button 
-                variant="secondary"
-                style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1000 }}
-                onClick={() => navigate(-1)}
-            >
-                ← Back
-            </Button>
+//     if (!mapInitialized || !clinic) {
+//         return <div>Loading map...</div>;
+//     }
+
+//     return (
+//         <div style={{ height: '100vh', width: '100%', position: 'relative' }}>
+//             <Button 
+//                 variant="secondary"
+//                 style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1000 }}
+//                 onClick={() => navigate(-1)}
+//             >
+//                 ← Back
+//             </Button>
             
-            <MapContainer
-                center={userPosition}
-                zoom={13}
-                style={{ height: '100%', width: '100%' }}
-                ref={mapRef}
-            >
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
+//             <MapContainer
+//                 center={userPosition}
+//                 zoom={13}
+//                 style={{ height: '100%', width: '100%' }}
+//                 ref={mapRef}
+//             >
+//                 <TileLayer
+//                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+//                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//                 />
                 
-                <Marker position={userPosition}>
-                    <Popup>Your Location</Popup>
-                </Marker>
+//                 <Marker position={userPosition}>
+//                     <Popup>Your Location</Popup>
+//                 </Marker>
                 
-                <Marker position={clinic.coordinates}>
-                    <Popup>{clinic.name}</Popup>
-                </Marker>
+//                 <Marker position={clinic.coordinates}>
+//                     <Popup>{clinic.name}</Popup>
+//                 </Marker>
 
-                <Routing />
-            </MapContainer>
-        </div>
-    );
-};
+//                 <Routing />
+//             </MapContainer>
+//         </div>
+//     );
+// };
 
-export default DirectionsPage;
+// export default DirectionsPage;
