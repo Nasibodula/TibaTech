@@ -9,6 +9,7 @@ import Viewmore from './pages/Viewmore';
 import NearbyClinics from './pages/NearbyClinics';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import TelemedicinePage from './pages/Consultation';
 
 function App() {
   // Leaflet marker icon setup
@@ -33,6 +34,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/viewmore" element={<Viewmore />} />
           <Route path="/clinics" element={<NearbyClinics />} />
+          <Route path="/consult" element={<TelemedicinePage />} />
+
         </Routes>
         {/* <Footer /> */}
       </div>
