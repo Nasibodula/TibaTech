@@ -549,39 +549,3 @@ header.header-shrunk {
   background: #08e5e8;
 }
 
-
-
-
-
-/* subscribe */
-.subscribe__container :is(.section__header, .section__description) {
-  max-width: 600px;
-  margin-inline: auto;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.subscribe__container form {
-  max-width: 500px;
-  margin-inline: auto;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  background-color: #09e0e3;
-  border-radius: 10px;
-}
-
-.subscribe__container input {
-  width: 100%;
-  padding-inline: 1rem;
-  outline: none;
-  border: none;
-  font-size: 1rem;
-  color: var(--white);
-  background-color: transparent;
-}
-
-.subscribe__container input::placeholder {
-  color: var(--white);
-}
-
