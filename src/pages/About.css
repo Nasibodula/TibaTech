@@ -4,44 +4,9 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #0c0572, #0d4b82, #0950f7);
   position: relative;
-  overflow: hidden;
+  overflow: clip; /* Prevents scrollbars */
   padding: 80px 20px;
   font-family: 'Jacques Francois', serif;
-}
-
-/* Grid Lines */
-.grid-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
-  pointer-events: none;
-}
-
-.grid-line {
-  height: 100%;
-  border-right: 1px solid rgba(0, 157, 255, 0.1);
-  animation: pulseLine 4s infinite;
-}
-
-@keyframes pulseLine {
-  0% {
-    opacity: 0.1;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    opacity: 0.3;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    opacity: 0.1;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-  }
 }
 
 /* About Content */

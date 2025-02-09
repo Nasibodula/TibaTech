@@ -1,20 +1,20 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import './App.css';
-import Navbar from './components/Navbar';
-import Homepage from './pages/Homepage';
-import SymptomChecker from './pages/SymtomsCheck';
-import Profile from './pages/Profile';
-import Signup from './pages/Signup';
-import Viewmore from './pages/Viewmore';
-import NearbyClinics from './pages/NearbyClinics';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Homepage from "./pages/Homepage";
+import SymptomsCheck from "./pages/SymptomsCheck"; // Correct import
+import Profile from "./pages/Profile";
+import Signup from "./pages/Signup";
+import Viewmore from "./pages/Viewmore";
+import NearbyClinics from "./pages/NearbyClinics";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 function App() {
   // Leaflet marker icon setup
   let DefaultIcon = L.icon({
-    iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+    iconUrl: require("leaflet/dist/images/marker-icon.png"),
+    shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
@@ -28,13 +28,12 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/symtomscheck" element={<SymptomChecker />} />
+          <Route path="/symptomscheck" element={<SymptomsCheck />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/viewmore" element={<Viewmore />} />
           <Route path="/clinics" element={<NearbyClinics />} />
         </Routes>
-        {/* <Footer /> */}
       </div>
     </Router>
   );

@@ -6,7 +6,6 @@ body, html {
   padding: 0;
   font-family: 'Jacques Francois', serif;
   overflow: hidden;
-  height: 100%;
   width: 100vw;
   overflow-y: auto; /* Change from hidden to auto */
   scroll-behavior: smooth;
