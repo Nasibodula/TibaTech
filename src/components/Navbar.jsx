@@ -30,37 +30,12 @@ const Navbar = () => {
         <Link to="/" className="navbar-brand">
           <span className="brand-text">Tiba Tech</span>
         </Link>
-
-        <button className="mobile-menu-button" onClick={toggleMenu}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
-          <li>
-            <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/symtomscheck" className="nav-link" onClick={() => setIsOpen(false)}>
-              Symptoms Checker
-            </Link>
-          </li>
-          <li>
-            <Link to="/services" className="nav-link" onClick={() => setIsOpen(false)}>
-              Consult
-            </Link>
-          </li>
-          <li>
-            <Link to="/clinics" className="nav-link" onClick={() => setIsOpen(false)}>
-              Clinics
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>
-              Help Center
-            </Link>
-          </li>
+        <ul className="navbar-links">
+          <li><Link to="/" className="nav-link">Home</Link></li>
+          <li><Link to="/symtomscheck" className="nav-link">Symptoms Checker</Link></li>
+          <li><Link to="/consult" className="nav-link">Consult</Link></li>
+          <li><Link to="/clinics" className="nav-link">Clinics</Link></li>
+          <li><Link to="/contact" className="nav-link">Help Center</Link></li>
         </ul>
       </div>
     </nav>

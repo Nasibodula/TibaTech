@@ -1,14 +1,15 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Homepage from "./pages/Homepage";
-import SymptomsCheck from "./pages/SymptomsCheck"; // Correct import
-import Profile from "./pages/Profile";
-import Signup from "./pages/Signup";
-import Viewmore from "./pages/Viewmore";
-import NearbyClinics from "./pages/NearbyClinics";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/Navbar';
+import Homepage from './pages/Homepage';
+import SymptomChecker from './pages/SymtomsCheck';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
+import Viewmore from './pages/Viewmore';
+import NearbyClinics from './pages/NearbyClinics';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import TelemedicinePage from './pages/Consultation';
 
 function App() {
   // Leaflet marker icon setup
@@ -33,6 +34,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/viewmore" element={<Viewmore />} />
           <Route path="/clinics" element={<NearbyClinics />} />
+          <Route path="/consult" element={<TelemedicinePage />} />
+
         </Routes>
       </div>
     </Router>
