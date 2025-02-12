@@ -5,7 +5,11 @@ export default {
       "./public/index.html",
     ], // Paths to your template files
     theme: {
-      extend: {}, // Use this to extend Tailwind’s default styles
+      extend: {
+        colors: {
+          primary: "#1E40AF", // Custom primary color
+        },
+      },
     },
     plugins: [], // Add any Tailwind plugins here
   };

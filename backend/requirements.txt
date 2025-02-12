@@ -6,3 +6,7 @@ flask
 pypdf
 python-dotenv
 -e .
+transformers
+torch
+librosa
+soundfile
