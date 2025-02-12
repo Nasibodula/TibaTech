@@ -1,11 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { Mic, MicOff } from 'lucide-react';
 import "./SymptomsCheck.css";
 
 const SymptomsCheck = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+
+  const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
+
+  useEffect(() => {
+    if (transcript) {
+      setInput(transcript);
+    }
+  }, [transcript]);
+
+  const startListening = () => {
+    resetTranscript();
+    SpeechRecognition.startListening({ continuous: true });
+    setIsListening(true);
+  };
+
+  const stopListening = () => {
+    SpeechRecognition.stopListening();
+    setIsListening(false);
+  };
 
   const sendMessage = async (event) => {
     event.preventDefault();
@@ -27,8 +54,6 @@ const SymptomsCheck = () => {
         }
       );
 
-      console.log("Response received:", response.data); // Debug log
-
       if (response.data && response.data.response) {
         const botMessage = {
           text: response.data.response,
@@ -39,7 +64,7 @@ const SymptomsCheck = () => {
         throw new Error("Invalid response format");
       }
     } catch (error) {
-      console.error("Error details:", error); // Debug log
+      console.error("Error details:", error);
       const errorMessage = {
         text: "Error connecting to chatbot. Please try again.",
         sender: "bot"
@@ -48,8 +73,19 @@ const SymptomsCheck = () => {
     } finally {
       setIsLoading(false);
       setInput("");
+      resetTranscript();
     }
   };
+
+  if (!browserSupportsSpeechRecognition) {
+    return (
+      <div className="chat-container">
+        <div className="error-message">
+          Your browser doesn't support speech recognition.
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="chat-container">
@@ -86,6 +122,13 @@ const SymptomsCheck = () => {
           disabled={isLoading}
           required
         />
+        <button 
+          type="button" 
+          className={`mic-button ${isListening ? 'listening' : ''}`}
+          onClick={isListening ? stopListening : startListening}
+        >
+          {isListening ? <MicOff /> : <Mic />}
+        </button>
         <button type="submit" disabled={isLoading}>
           {isLoading ? "Sending..." : "Send"}
         </button>
