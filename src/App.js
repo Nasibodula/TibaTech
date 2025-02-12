@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Homepage from './pages/Homepage';
-import SymptomChecker from './pages/SymtomsCheck';
+import SymptomChecker from './pages/SymptomsCheck';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Viewmore from './pages/Viewmore';
@@ -29,7 +29,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/symptomscheck" element={<SymptomsCheck />} />
+          <Route path="/symtomscheck" element={<SymptomChecker />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/viewmore" element={<Viewmore />} />
