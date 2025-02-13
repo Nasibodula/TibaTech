@@ -11,6 +11,9 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import TelemedicinePage from './pages/Consultation';
 import HelpCenter from './pages/HelpCenter';
+import { DoctorProvider } from './context/GetDoctorsContext';
+import DoctorBooking from './components/booking/DoctorBooking';
+import DoctorCard from './components/DoctorCard';
 
 function App() {
   // Leaflet marker icon setup
@@ -27,6 +30,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+      <DoctorProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -37,8 +41,12 @@ function App() {
           <Route path="/clinics" element={<NearbyClinics />} />
           <Route path="/consult" element={<TelemedicinePage />} />
           <Route path="/contact" element={ <HelpCenter />} />
+          <Route path='/doctors' element={<DoctorCard/>} />
+          <Route path='/booking' element={<DoctorBooking/>} />
+
 
         </Routes>
+        </DoctorProvider>
       </div>
     </Router>
   );
