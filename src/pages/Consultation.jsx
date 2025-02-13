@@ -1,23 +1,42 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Phone, Calendar, MessageSquare, ChevronUp, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Phone, Calendar, MessageSquare, ChevronUp, ChevronDown, Paperclip } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import CallInterface from '../components/CallInterface';
+import { Card, Button } from 'react-bootstrap';
 
 const TelemedicinePage = () => {
   const [showChat, setShowChat] = useState(false);
   const [isChatExpanded, setIsChatExpanded] = useState(true);
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState('');
+  const [image, setImage] = useState(null);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
-    if (currentMessage.trim()) {
-      setMessages([...messages, { text: currentMessage, sender: 'user' }]);
+    if (currentMessage || image) {
+      const newMessage = { text: currentMessage, image, sender: 'user' };
+      setMessages([...messages, newMessage]);
       setCurrentMessage('');
+      setImage(null);
+
+      // Simulate auto-reply from a healthcare provider
       setTimeout(() => {
         setMessages(prev => [...prev, {
           text: "Thank you for your message. A healthcare provider will respond shortly.",
           sender: 'doctor'
         }]);
       }, 1000);
+    }
+  };
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result); // Convert image to base64 for preview
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -52,30 +71,23 @@ const TelemedicinePage = () => {
         <div className="row mb-4 g-4">
           <div className="col-md-6">
             <div className="card h-100">
-              <div className="card-body text-center p-4">
-                <Phone className="text-primary mb-3" size={48} />
-                <h2 className="h5 mb-3">Start a Call</h2>
-                <p className="text-muted mb-4">
-                  Connect with a healthcare provider immediately via video call
-                </p>
-                <button className="btn btn-primary w-100">
-                  Start Video Consultation
-                </button>
-              </div>
+              <CallInterface />
             </div>
           </div>
 
           <div className="col-md-6">
             <div className="card h-100">
-              <div className="card-body text-center p-4">
+              <div className="card-body d-flex flex-column justify-content-center align-items-center text-center p-5">
                 <Calendar className="text-primary mb-3" size={48} />
                 <h2 className="h5 mb-3">Book an Appointment</h2>
                 <p className="text-muted mb-4">
                   Schedule a consultation for a later time
                 </p>
-                <button className="btn btn-outline-primary w-100">
-                  Schedule Appointment
-                </button>
+                <Link to='/doctors'>
+                  <button className="btn btn-outline-primary w-100">
+                    Schedule Appointment
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -85,7 +97,7 @@ const TelemedicinePage = () => {
         <div className="card">
           <div className="card-header bg-white p-3">
             <div 
-              className="d-flex align-items-center justify-content-between cursor-pointer"
+              className="d-flex align-items-center justify-content-between"
               onClick={showChat ? toggleChat : () => setShowChat(true)}
               style={{ cursor: 'pointer' }}
             >
@@ -96,11 +108,7 @@ const TelemedicinePage = () => {
                   <p className="text-muted mb-0">Message a healthcare provider</p>
                 </div>
               </div>
-              {showChat && (
-                isChatExpanded ? 
-                <ChevronUp size={24} className="text-muted" /> : 
-                <ChevronDown size={24} className="text-muted" />
-              )}
+              {showChat && (isChatExpanded ? <ChevronUp size={24} className="text-muted" /> : <ChevronDown size={24} className="text-muted" />)}
             </div>
           </div>
 
@@ -110,18 +118,21 @@ const TelemedicinePage = () => {
                 {messages.map((msg, idx) => (
                   <div
                     key={idx}
-                    className={`p-3 rounded mb-2 ${
-                      msg.sender === 'user'
-                        ? 'bg-primary bg-opacity-10 ms-auto'
-                        : 'bg-light me-auto'
-                    }`}
+                    className={`p-3 rounded mb-2 ${msg.sender === 'user' ? 'bg-primary bg-opacity-10 ms-auto' : 'bg-light me-auto'}`}
                     style={{ maxWidth: '80%' }}
                   >
-                    {msg.text}
+                    {msg.text && <p className="mb-1">{msg.text}</p>}
+                    {msg.image && <img src={msg.image} alt="Uploaded" className="img-fluid rounded mt-2" style={{ maxWidth: "200px" }} />}
                   </div>
                 ))}
               </div>
+
+              {/* Message Input */}
               <form onSubmit={handleSendMessage} className="d-flex gap-2">
+                <label className="btn btn-outline-secondary p-2">
+                  <Paperclip size={20} />
+                  <input type="file" accept="image/*" onChange={handleImageUpload} className="d-none" />
+                </label>
                 <input
                   type="text"
                   value={currentMessage}
@@ -129,10 +140,16 @@ const TelemedicinePage = () => {
                   placeholder="Type your message..."
                   className="form-control"
                 />
-                <button type="submit" className="btn btn-primary">
-                  Send
-                </button>
+                <button type="submit" className="btn btn-primary">Send</button>
               </form>
+
+              {/* Image Preview */}
+              {image && (
+                <div className="mt-3 text-center">
+                  <img src={image} alt="Preview" className="img-fluid rounded" style={{ maxWidth: "100px" }} />
+                  <Button variant="danger" size="sm" className="ms-2" onClick={() => setImage(null)}>Remove</Button>
+                </div>
+              )}
             </div>
           )}
         </div>
