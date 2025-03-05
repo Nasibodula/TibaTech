@@ -11,3 +11,4 @@ torch
 librosa
 soundfile
 gunicorn
+flask-cors
