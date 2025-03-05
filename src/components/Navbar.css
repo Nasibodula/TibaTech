@@ -4,7 +4,7 @@
   padding: 1rem 2rem;
   background: rgba(12, 5, 114, 0.2);
   backdrop-filter: blur(10px);
-  position: fixed;
+  position: fixed; 
   top: 0;
   left: 0;
   transition: all 0.3s ease;
@@ -97,7 +97,7 @@
   .mobile-menu-button {
     display: flex;
     position: absolute;
-    left: 170%;
+    left: 150%;
     top: 50%;
     transform: translateY(-50%);
   }
