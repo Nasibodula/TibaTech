@@ -1,5 +1,5 @@
 ctransformers==0.2.5
-sentence-transformers==2.2.2
+sentence-transformers
 pinecone-client==3.2.2 
 flask
 pypdf
@@ -13,7 +13,7 @@ gunicorn
 flask-cors
 langchain==0.0.320
 langchain-community==0.0.15
-langchain-huggingface==0.0.2
+langchain-huggingface
 
 
 
