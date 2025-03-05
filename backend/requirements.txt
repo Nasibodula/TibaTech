@@ -11,8 +11,8 @@ librosa
 soundfile
 gunicorn
 flask-cors
-langchain==0.0.320
-langchain-community==0.0.15
+langchain
+langchain-community
 langchain-huggingface
 
 
