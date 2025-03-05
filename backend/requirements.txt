@@ -13,3 +13,6 @@ soundfile
 gunicorn
 flask-cors
 langchain-community
+
+
+
