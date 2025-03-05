@@ -14,11 +14,12 @@ from transformers import pipeline, AutoModelForSpeechSeq2Seq, AutoProcessor
 import torch
 import librosa
 import soundfile as sf
+import  os
 
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": ["http://localhost:3000"],
+        "origins": ["https://tiba-tech.vercel.app"],
         "methods": ["GET", "POST"],
         "allow_headers": ["Content-Type"]
     }
@@ -148,5 +149,7 @@ def chat():
         }), 500
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    port = int(os.environ.get("PORT", 8080))  # Use assigned PORT, fallback to 8080
+    app.run(host="0.0.0.0", port=port, debug=True)
+    
     
